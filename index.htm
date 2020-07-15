@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:image" content="image/ccpvirus-seo.jpg" />
+    <meta
+      name="Description"
+      content="The CCP Virus Map represents records in map diagram. 
+               We also support sources of true news in which you can update quickly about the CCP virus and its origin."
+    />
+    <title>GLOBAL COVID 19 VIRUS MAP</title>
+    <link rel="icon" href="imgs/Corona-Virus.png" type="image/icon type" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+Chettan+2:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="register-sw.js"></script>
+    <script src="js\index.js"></script>
+    <script src="js\google-map-style.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script src="https://kit.fontawesome.com/c939d0e917.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async=""
+      src="https://www.googletagmanager.com/gtag/js?id=UA-163714592-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-163714592-1");
+    </script>
+    <script src="reload.js"></script>
+    <style>
+      @import url("style/style.css");
+      /* @import url("style/modal.css"); */
+    </style>
+    <link rel="manifest" href="manifest.json" />
+    <!-- ios support -->
+    <link rel="apple-touch-icon" href="image\icons\icon-96x96.png" />
+    <meta name="apple-mobile-web-app-status-bar" content="#aa7700" />
+    <meta name="theme-color" content="#FFE1C4" />
+  </head>
+
+  <body>
+    <!--onclick="playSong()" -->
+    <div class="loader-container">
+      <h1>COVID 19 MAP</h1>
+      <div class="loader"></div>
+    </div>
+    <audio
+      controls=""
+      webkit-playsinline="true"
+      loop=""
+      id="my_song"
+      volume="0.1"
+    >
+      <source src="sound\falundafaisgood.mp3" type="audio/mp3" />
+      Your browser does not support the audio element.
+    </audio>
+    <div class="title">COVID 19 MAP</div>
+
+    <div class="search-container">
+      <div class="search">
+        <input
+          type="text"
+          name=""
+          id="country-input"
+          placeholder="Enter Country"
+          onchange="searchCountry()"
+        />
+        <i class="fas fa-search"></i>
+      </div>
+    </div>
+
+    <div class="countries-list-container">
+      <div class="countries-list">
+        <!-- <div class="country-container">
+                <div class="country-info-container">
+                    <div class="country-name">
+                        <span> 7438 South Ave.</span>
+                        <span>Norman, OK 73072</span>
+                    </div>
+                    <div class="boundary">
+                        (950) 715-9938
+                    </div>
+                </div>
+                <div class="country-number-container">
+                    <div class="country-number">
+                        1
+                    </div>
+                </div>
+            </div> -->
+      </div>
+    </div>
+
+    <!-- Trigger/Open The Modal -->
+    <!--a id="modal-btn" href="#">
+      <h3>
+        <font>True News </font>
+        <font style="text-transform: lowercase; color: #db7022;">On</font> CCP
+        Virus
+      </h3>
+    </a-->
+
+    <!--  -->
+    <div id="map"></div>
+    <script
+      async=""
+      defer=""
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLEW4S3JwYwrXkqQPc26o76hb7cRbO0Hs&callback=initMap"
+    ></script>
+    <script>
+      var audio = document.getElementById("my_song");
+      audio.volume = 0.08;
+    </script>
+    <script src="js\modal.js"></script>
+    <script src="js\link-image.js"></script>
+  </body>
+</html>

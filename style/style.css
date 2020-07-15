@@ -1,0 +1,507 @@
+body {
+  /* font-family: Arial, Helvetica, sans-serif; */
+  font-family: "Poppins", sans-serif;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+#my_song {
+  display: none;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+}
+
+.title {
+  font-family: "Poppins", sans-serif;
+  position: absolute;
+  z-index: 100;
+  font-size: 3.8rem;
+  font-weight: bold;
+  color: white;
+  letter-spacing: 6px;
+  transition: color 0.2s ease;
+  text-transform: uppercase;
+  top: 40px;
+  left: 80px;
+  margin-bottom: 20px;
+}
+
+.title:hover {
+  color: rgb(228, 228, 228);
+}
+
+.search-container {
+  position: absolute;
+  z-index: 100;
+  top: 130px;
+  left: 80px;
+  width: 400px;
+  height: 60px;
+  background-color: white;
+  transition: color 0.2s ease;
+  border-radius: 44px;
+  display: flex;
+
+  transition: all 0.3s;
+  font-weight: bold;
+}
+
+.search-container:hover {
+  background-color: #2a4756;
+}
+
+.search-container .search {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  color: #222121;
+}
+
+.search-container input {
+  font-family: "Poppins", sans-serif;
+  width: 100%;
+  font-size: 16px;
+  background-color: transparent;
+  border: none;
+  color: white;
+}
+
+.search-container input::placeholder {
+  color: #222121;
+  transition: color 1s ease;
+}
+
+.search-container input:hover input::placeholder {
+  color: white;
+  transition: color 1s ease;
+}
+.search-container input:focus {
+  outline: none;
+}
+
+.search-container input:focus::placeholder {
+  color: white;
+}
+
+.search i {
+  font-size: 25px;
+  color: white;
+}
+
+.ccp-virus-info-country-container {
+  width: 200px;
+}
+
+.countries-list-container {
+  width: 400px;
+  position: absolute;
+  z-index: 100;
+  background-color: rgba(255, 255, 255, 0.9);
+  top: 220px;
+  left: 80px;
+  border-radius: 44px;
+  bottom: 20px;
+  display: none;
+  overflow-y: hidden;
+  padding-bottom: 20px;
+}
+
+.countries-list-container .countries-list {
+  padding-left: 10px;
+  padding-right: 10px;
+  flex-grow: 1;
+  overflow-y: scroll;
+}
+
+.countries-list::-webkit-scrollbar {
+  width: 0px;
+}
+
+.countries-list:hover::-webkit-scrollbar {
+  width: 12px;
+}
+
+.country-container {
+  padding-left: 20px;
+  padding-right: 20px;
+  border-bottom: 1px solid #979797;
+  display: flex;
+  transition: 0.2s;
+}
+
+.country-container:hover {
+  background-color: #222121;
+  border-radius: 16px;
+  border-color: #18b4ff;
+  border-size: 2px;
+  cursor: pointer;
+  color: white;
+}
+
+.country-container:hover .boundary {
+  color: white !important;
+}
+
+.country-container:hover .country-number {
+  background-color: white;
+  color: #18b4ff;
+}
+
+.country-container .country-info-container {
+  flex-grow: 1;
+}
+
+.country-container .country-name {
+  font-size: 22px;
+  margin-top: 20px;
+}
+
+.country-container .boundary {
+  font-size: 16px;
+  color: #b5adad;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.country-name span {
+  display: block;
+}
+
+.country-number-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.country-number {
+  width: 33px;
+  height: 33px;
+  background-color: #b5adad;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.info-country-name {
+  margin: 0px;
+}
+
+.window-basic-container {
+  border-bottom: 1px solid rgb(194, 194, 194);
+  transition: 0.2s;
+}
+
+.window-info-country-name {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.window-info-status-open {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.window-secondary-container {
+  margin-top: 5px;
+}
+
+.window-info-name {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  font-size: 16px;
+}
+
+.window-info-name i {
+  background: black;
+  color: white;
+  width: 28px;
+  height: 28px;
+  font-size: 16px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.window-info-name a {
+  margin-left: 5px;
+}
+
+.window-info-phone {
+  margin-top: 5px;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  font-size: 16px;
+}
+
+.window-info-phone i {
+  background: black;
+  color: white;
+  width: 28px;
+  height: 28px;
+  font-size: 16px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.window-info-phone span {
+  margin-left: 5px;
+}
+
+/* Let's get this party started */
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* Track */
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background: #435158;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+  background: #435158;
+}
+
+.info-main-container {
+  border-bottom: 1px solid #a3a3ab;
+  padding-bottom: 5px;
+}
+
+.info-main-container .info-country {
+  font-size: 22px;
+  font-weight: bold;
+  color: #435158;
+}
+
+.info-main-container .info-last-updated {
+  /* font-size: 15px; */
+  font-style: italic;
+  margin-top: 2px;
+}
+
+.info-secondary-container {
+  font-size: 16px;
+}
+
+.info-secondary-container {
+  margin-top: 5px;
+}
+
+.info-cases {
+  color: #ff5d11;
+  font-weight: 500;
+}
+
+.info-recovered {
+  color: rgb(0, 174, 0);
+  font-weight: 500;
+}
+
+.info-death {
+  color: rgb(211, 5, 5);
+  font-weight: 500;
+}
+
+.search {
+  cursor: pointer;
+}
+
+.misscellaneous {
+  position: absolute;
+  z-index: 100;
+  left: 50vw;
+  bottom: 21px;
+}
+
+.patreon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.misscellaneous .donate .patreon img {
+  border-radius: 50%;
+  width: 30px;
+}
+
+.patreon a {
+  color: white;
+  font-weight: bold;
+  padding: 5px;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.patreon:hover {
+  background-color: #e85b46;
+  border-radius: 44px;
+}
+
+.patreon:hover a {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Spinner */
+
+.loader-container {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  background: rgb(255, 255, 255, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader-container h1 {
+  display: none;
+  -webkit-animation: spin 2s linear infinite;
+  animation: showhide 1s 1s linear infinite alternate;
+}
+
+@-webkit-keyframes showhide {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes showhide {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3e484b;
+  border-right: 16px solid #d68a79;
+  border-bottom: 16px solid #6e7c7e;
+  border-left: 16px solid #d68a79;
+  width: 40px;
+  height: 40px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+  transition: display 0.5s ease-in-out;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Spinner */
+
+/* Responsive for Mobile */
+
+@media only screen and (max-width: 420px) {
+  .title {
+    display: none;
+  }
+  .search-container {
+    max-width: 69vw;
+    max-height: 14vw;
+    top: 84vh;
+    left: 15vw;
+  }
+  .countries-list-container {
+    max-width: 70vw;
+    max-height: 30vh;
+    top: 52vh;
+    left: 14vw;
+  }
+  .misscellaneous {
+    position: absolute;
+    z-index: 100;
+    left: 45vw;
+    bottom: 3vw;
+  }
+  .patreon a {
+    display: none;
+  }
+  .loader-container h1 {
+    display: inline;
+    color: rgb(54, 46, 50, 1);
+    font-size: 47px;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: center;
+  }
+  .country-container .country-name {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 814px) {
+  .title {
+    left: 50px;
+  }
+  .search-container {
+    left: 50px;
+  }
+}
+
+@media only screen and (min-width: 420px) and (max-width: 767px) {
+  .title {
+    left: 40px;
+    font-size: 45px;
+  }
+  .search-container {
+    left: 40px;
+    top: 115px;
+  }
+  .countries-list-container {
+    top: 195px;
+    left: 40px;
+  }
+}
